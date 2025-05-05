@@ -22,7 +22,7 @@ def get_split(slice_index, pos_instances, neg_instances, template_str, user_tag=
     else:
         labels.extend([[1,0]]* len(paired_data))
         
-    data = [template_str.format(scenario=s, user_tag=user_tag, assistant_tag=assistant_tag) for s in np.concatenate(paired_data)]
+    data = [template_str.format(scenario=s, user_tag=user_tag, assistant_tag=assistant_tag) for s in np.concatenate(paired_data).tolist()]
     return  {'data': data, 'labels': labels},
 
     
@@ -37,7 +37,7 @@ def toxicgen_concept_dataset(n_train=150,user_tag="", assistant_tag="", seed=0):
     neg_instances = dataset.filter(lambda x: x['prompt_label'] == 0)
     
     return {
-            'train': get_split(range(0,n_train),pos_instances,neg_instances,template_str,user_tag,assistant_tag, "train"),
-            'val': get_split(range(n_train, n_train*2),pos_instances,neg_instances,template_str,user_tag,assistant_tag,"val"),
-            'test': get_split(range(n_train*2,len(dataset)),pos_instances,neg_instances,template_str,user_tag,assistant_tag,"test")
+            'train': get_split(range(0,n_train),pos_instances,neg_instances,template_str,user_tag,assistant_tag, "train")[0],
+            'val': get_split(range(n_train, n_train*2),pos_instances,neg_instances,template_str,user_tag,assistant_tag,"val")[0],
+            'test': get_split(range(n_train*2,n_train*5),pos_instances,neg_instances,template_str,user_tag,assistant_tag,"test")[0]
         }
