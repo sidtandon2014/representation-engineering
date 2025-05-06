@@ -2,7 +2,7 @@
 
 ### Points
 
-* Proposes a different approach than mechanistic learning.
+* Proposes a a novel transparency approach called representation engineering i.e. different from mechanistic learning which is more focussed around lower level details like individual neurons and circuits.
 * Mechanistic learning provides more control, for example, with Induction heads, suggesting that any architecture can cater to NLP requirements.
 * Representation learning is more aligned with Responsible AI. It focuses on identifying concepts and functions in a top-down manner.
 
