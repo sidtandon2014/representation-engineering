@@ -1,4 +1,4 @@
-## Representation Learning
+## Representation Learning (My view)
 
 ### Points
 
@@ -17,9 +17,9 @@ Representation reading aims to understand the internal representations of a mode
 * **Collect neural activity**:
     * For a concept & token, take the hidden vector of the last token.
 * **Constructing a linear model**:
-    * **K-means**: A clustering algorithm that can be used to group similar representations.
+    * **K-means**: 
     * **PCA (Principal Component Analysis)**: To calculate the score, take the difference of pairs, then perform PCA, and finally apply a dot product between the representation and the reading vector.
-    * **Linear probing**: Training a simple linear model on top of the learned representations to see if a concept is encoded.
+    * **Linear probing**:
 
 ### Representation Control
 
@@ -29,12 +29,12 @@ Seeks to modify or control the internal representations of concepts and function
 
 1.  **Use Reading vector**: Utilize the vector identified during representation reading.
 2.  **Use contrast vector**: Employ a vector that distinguishes between two concepts.
-3.  **Use LoRRA (Low-Rank Representation Adaptation)**: A technique to adapt representations.
+3.  **Use LoRRA (Low-Rank Representation Adaptation)**: Above technique is computationally inefficient so use Lorra with contrast vectors as target to adapt representations.
 
 #### Operators
 
 * **Linear combination**: $R' = R \pm v$ (where $R$ is the original representation and $v$ is a control vector)
-* **Piecewise Operation**: $R' = R$ (This likely implies a conditional modification not fully captured by the simple equation, or it's a placeholder for more complex piecewise functions.)
+* **Piecewise Operation**: 
 * **Projection**: $R' = R - \text{proj}_v(R)$ (where $\text{proj}_v(R)$ is the projection of $R$ onto $v$)
 
 ### Evaluation
