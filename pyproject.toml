@@ -17,6 +17,13 @@ dependencies = [
     "accelerate",
     "scikit-learn",
     "transformers",
+    "matplotlib",
+    "pandas",
+    "seaborn"
+    "sentencepiece"
+    "protobuf",
+    "dataset",
+    "pyhton-dotenv"
 ]
 
 [tool.setuptools]
