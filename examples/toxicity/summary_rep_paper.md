@@ -18,8 +18,14 @@ Representation reading aims to understand the internal representations of a mode
     * For a concept & token, take the hidden vector of the last token.
 * **Constructing a linear model**:
     * **K-means**: 
-    * **PCA (Principal Component Analysis)**: To calculate the score, take the difference of pairs, then perform PCA, and finally apply a dot product between the representation and the reading vector.
-    * **Linear probing**:
+    * **PCA (Principal Component Analysis)**: To calculate the score, perform following
+       * Calculte hidden states for contrastive prompts for each stimuli
+       * Take the difference of pairs
+       * Normalize it
+       * Perform PCA and use first component. This will be called as reading vector 
+       * Compute layer sign by performing dot product between the representation and the reading vector and compairng it with labels
+       * **During inference** perform first step, and then take a dot product with reading vector. This will be the scores, and based on sign we decide whether the statement is honest or dishonest  
+    * **Linear probing**: Use weights of logistic regression model as reading vector
 
 ### Representation Control
 
